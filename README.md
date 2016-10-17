@@ -5,6 +5,13 @@ This project is one of the many parts of X system.
 
 The X system is being developed by all participants in the Processos de Software course at UFRN.
 
+## Other Projects 
+
+- [Android](https://github.com/Processos-de-software-2016-2/Android)
+- [Infrastructure](https://github.com/Processos-de-software-2016-2/Infraestrutura) 
+- [WebApp](https://github.com/Processos-de-software-2016-2/Web-App)
+- [UX](https://github.com/Processos-de-software-2016-2/UX)
+
 ## Technologies
 - Python
 - [Framework X]
