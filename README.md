@@ -16,7 +16,7 @@ This project is one of the many parts of system X.
 5. Create a pull request from your branch to master.
 
 ## Team
-- [danielmanfred](https://github.com/danielmanfred)
+- [Daniel Tiago de Souza Brito](https://github.com/danielmanfred)
 - [João Eduardo Medeiros](https://github.com/joaomedeiros95)
 - [Stefano Momo Loss](https://github.com/Stefano10)
 - [victorsv](https://github.com/victorsv)
