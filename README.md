@@ -2,7 +2,8 @@
 API developed for X system.
 
 This project is one of the many parts of X system.
-The X system is being developed by all participants in the Processos de Software course at UFRN
+
+The X system is being developed by all participants in the Processos de Software course at UFRN.
 
 ## Technologies
 - Python
