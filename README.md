@@ -29,3 +29,4 @@ The X system is being developed by all participants in the Processos de Software
 - [João Eduardo Medeiros](https://github.com/joaomedeiros95)
 - [Stefano Momo Loss](https://github.com/Stefano10)
 - [victorsv](https://github.com/victorsv)
+- [Vinícius Kleiton da Trindade Ramos](https://github.com/Vinnykt)
