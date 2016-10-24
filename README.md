@@ -6,12 +6,12 @@ This platform is being developed by all participants in the Processos de Softwar
 
 # API Component
 
-This component is responsible for ...
+This component is responsible for ..
 
 ## Technologies
 - Python
-- [Framework X]
-- [DB X]
+- Falcon
+- MySQL
 
 ## API Description
 Api in development for the platform described above, includes the following methods: 
