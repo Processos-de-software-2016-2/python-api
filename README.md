@@ -1,11 +1,10 @@
-# API for X
-API developed for X system.
+# About the project
 
-This project is one of the many parts of X system.
+The project is a platform in which the users will be able to exchange knowledge through it. You can learn from playing the guitar to the basics of a programming language, in which there will be a knowledge exchange, meaning that since you will be teaching someone else, it is expected that you too will be learning from your study partner.
 
-The X system is being developed by all participants in the Processos de Software course at UFRN.
+This platform is being developed by all participants in the Processos de Software course at UFRN.
 
-## Other Projects 
+## Other Parts of this Project 
 
 - [Android](https://github.com/Processos-de-software-2016-2/Android)
 - [Infrastructure](https://github.com/Processos-de-software-2016-2/Infraestrutura) 
@@ -17,7 +16,21 @@ The X system is being developed by all participants in the Processos de Software
 - [Framework X]
 - [DB X]
 
-## How to Contribute
+# API for X
+Api in development for the platform described above, includes the following methods: 
+
+|   URL   | VERB   | BODY    | RESULT            |
+| ---     |  ---   |  ---    | ---               |
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+
+# How to Contribute
 1. Clone the project: `$ git clone git@github.com:Processos-de-software-2016-2/python-api.git`;
 2. If you already have the project update it: `$ git pull origin master`;
 3. Create a branch to start coding: `$ git checkout -b <branch_name>`;
