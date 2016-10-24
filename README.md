@@ -16,61 +16,16 @@ This component is responsible for ...
 ## API Description
 Api in development for the platform described above, includes the following methods: 
 
-###  VERB GET
-
-|   URL   | VERB   | BODY    | RESULT            |
-| ---     |  ---   |  ---    | ---               |
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-
-
-###  VERB PUT
-
-|   URL   | VERB   | BODY    | RESULT            |
-| ---     |  ---   |  ---    | ---               |
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-
-
-###  VERB POST
-
-|   URL   | VERB   | BODY    | RESULT            |
-| ---     |  ---   |  ---    | ---               |
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-
-
-###  VERB DELETE
-
-|   URL   | VERB   | BODY    | RESULT            |
-| ---     |  ---   |  ---    | ---               |
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-| /users  | GET    | empty   |   Take all users  | 
-
+|   URL             | VERB   | BODY    | RESULT              |
+| ---               |  ---   |  ---    | ---                 |
+| /users            | GET    | empty   |   Take all users    | 
+| /user/{id}        | GET    | empty   |   Take a user by id | 
+| /user/{e-mail}    | GET    | empty   |   Take all users    | 
+| /user             | POST   | JSON    |   Send a user       | 
+| /user/{id}        | DELETE | empty   |   Delete user by id | 
+| /login            | GET    | empty   |   +++++++++++       | 
+| /users      | GET    | empty   |   Take all users  | 
+| /users      | GET    | empty   |   Take all users  | 
 
 # How to Contribute
 1. Clone the project: `$ git clone git@github.com:Processos-de-software-2016-2/python-api.git`;
