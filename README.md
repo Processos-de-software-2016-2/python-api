@@ -6,7 +6,7 @@ This platform is being developed by all participants in the Processos de Softwar
 
 # API Component
 
-This component responsible for ...
+This component is responsible for ...
 
 ## Technologies
 - Python
