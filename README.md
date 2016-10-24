@@ -4,20 +4,19 @@ The project is a platform in which the users will be able to exchange knowledge 
 
 This platform is being developed by all participants in the Processos de Software course at UFRN.
 
-## Other Parts of this Project 
+# API Component
 
-- [Android](https://github.com/Processos-de-software-2016-2/Android)
-- [Infrastructure](https://github.com/Processos-de-software-2016-2/Infraestrutura) 
-- [WebApp](https://github.com/Processos-de-software-2016-2/Web-App)
-- [UX](https://github.com/Processos-de-software-2016-2/UX)
+This component responsible for ...
 
 ## Technologies
 - Python
 - [Framework X]
 - [DB X]
 
-# API for X
+## API Description
 Api in development for the platform described above, includes the following methods: 
+
+###  VERB GET
 
 |   URL   | VERB   | BODY    | RESULT            |
 | ---     |  ---   |  ---    | ---               |
@@ -30,6 +29,49 @@ Api in development for the platform described above, includes the following meth
 | /users  | GET    | empty   |   Take all users  | 
 | /users  | GET    | empty   |   Take all users  | 
 
+
+###  VERB PUT
+
+|   URL   | VERB   | BODY    | RESULT            |
+| ---     |  ---   |  ---    | ---               |
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+
+
+###  VERB POST
+
+|   URL   | VERB   | BODY    | RESULT            |
+| ---     |  ---   |  ---    | ---               |
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+
+
+###  VERB DELETE
+
+|   URL   | VERB   | BODY    | RESULT            |
+| ---     |  ---   |  ---    | ---               |
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+| /users  | GET    | empty   |   Take all users  | 
+
+
 # How to Contribute
 1. Clone the project: `$ git clone git@github.com:Processos-de-software-2016-2/python-api.git`;
 2. If you already have the project update it: `$ git pull origin master`;
@@ -37,9 +79,16 @@ Api in development for the platform described above, includes the following meth
 4. Commit and push your changes: `$ git push origin <branch_name>`;
 5. Create a pull request from your branch to master.
 
-## Team
+# Team
 - [Daniel Tiago de Souza Brito](https://github.com/danielmanfred)
 - [João Eduardo Medeiros](https://github.com/joaomedeiros95)
 - [Stefano Momo Loss](https://github.com/Stefano10)
 - [victorsv](https://github.com/victorsv)
 - [Vinícius Kleiton da Trindade Ramos](https://github.com/Vinnykt)
+
+# Other Parts of this Project 
+
+- [Android](https://github.com/Processos-de-software-2016-2/Android)
+- [Infrastructure](https://github.com/Processos-de-software-2016-2/Infraestrutura) 
+- [WebApp](https://github.com/Processos-de-software-2016-2/Web-App)
+- [UX](https://github.com/Processos-de-software-2016-2/UX)
