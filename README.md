@@ -9,7 +9,7 @@ This platform is being developed by all participants in the Processos de Softwar
 This component is responsible for ..
 
 ## Technologies
-- Python
+- Python 3
 - Falcon
 - MySQL
 
@@ -26,6 +26,21 @@ Api in development for the platform described above, includes the following meth
 | /login            | GET    | empty   |   +++++++++++       | 
 | /users      | GET    | empty   |   Take all users  | 
 | /users      | GET    | empty   |   Take all users  | 
+
+## Getting Started
+### Installing prerequisites
+To use the api server you will need Python 3, Falcon and a WSGI Server (in our project we use gunicorn).
+
+To run our api server you will need to do this following steps one time:
+1. Install python-pip if you don't have it;
+2. Install falcon using pip: `# pip install falcon`;
+3. Install gunicorn using pip: `# pip install gevent gunicorn`.
+
+### Running
+To run the api server do the following: 
+1. Clone the project: `$ git clone git@github.com:Processos-de-software-2016-2/python-api.git`;
+2. Run the server: `gunicorn api:app`;
+3. Make a HTTP request on port 8000 to any of the URLs listed in API Description section.
 
 # How to Contribute
 1. Clone the project: `$ git clone git@github.com:Processos-de-software-2016-2/python-api.git`;
