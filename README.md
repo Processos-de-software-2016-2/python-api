@@ -32,6 +32,7 @@ Api in development for the platform described above, includes the following meth
 To use the api server you will need Python 3, Falcon and a WSGI Server (in our project we use gunicorn).
 
 To run our api server you will need to do this following steps one time:
+
 1. Install python-pip if you don't have it;
 2. Install falcon using pip: `# pip install falcon`;
 3. Install gunicorn using pip: `# pip install gevent gunicorn`.
