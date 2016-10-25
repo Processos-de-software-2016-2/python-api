@@ -39,6 +39,7 @@ To run our api server you will need to do this following steps one time:
 
 ### Running
 To run the api server do the following: 
+
 1. Clone the project: `$ git clone git@github.com:Processos-de-software-2016-2/python-api.git`;
 2. Run the server: `gunicorn api:app`;
 3. Make a HTTP request on port 8000 to any of the URLs listed in API Description section.
