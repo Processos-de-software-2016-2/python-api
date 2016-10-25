@@ -37,6 +37,8 @@ To run our api server you will need to do this following steps one time:
 2. Install falcon using pip: `# pip install falcon`;
 3. Install gunicorn using pip: `# pip install gevent gunicorn`.
 
+For easier management of pip packages, it's recommended to use [virtualenv](https://virtualenv.pypa.io/en/stable/). It creates isolated Python environments, and does not need superuser privileges to install packages. 
+
 ### Running
 To run the api server do the following: 
 
