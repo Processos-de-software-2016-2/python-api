@@ -2,7 +2,7 @@
 
 # Let's get this party started!
 import falcon
-from users import Users
+from controller.users import Users
 
 # falcon.API instances are callable WSGI apps
 app = falcon.API()
