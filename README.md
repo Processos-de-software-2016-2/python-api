@@ -6,7 +6,7 @@ This platform is being developed by all participants in the Processos de Softwar
 
 # API Component
 
-This component is responsible for ..
+This component is responsible for create an API for use in web and android versions of system being developed.
 
 ## Technologies
 - Python 3
