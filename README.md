@@ -21,7 +21,7 @@ Api in development for the platform described above, includes the following meth
 | /users            | GET    | empty   |   Take all users    | 
 | /user/{id}        | GET    | empty   |   Take a user by id | 
 | /user/{e-mail}    | GET    | empty   |   Take all users    | 
-| /user             | POST   | JSON    |   Send a user       | 
+| /user             | POST   | JSON    |   Add a user       | 
 | /user/{id}        | DELETE | empty   |   Delete user by id | 
 | /login            | GET    | empty   |   +++++++++++       | 
 | /users      | GET    | empty   |   Take all users  | 
