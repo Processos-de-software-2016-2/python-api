@@ -12,4 +12,3 @@ users = Users()
 
 # things will handle all requests to the '/things' URL path
 app.add_route('/users', users)
-app.add_route('/user', users)

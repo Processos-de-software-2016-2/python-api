@@ -8,4 +8,3 @@ class User(object):
         self.email = email
         self.age = age
         self.password = password
-
