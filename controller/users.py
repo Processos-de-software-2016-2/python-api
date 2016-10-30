@@ -1,15 +1,57 @@
 #users.py
 
-import falcon
+import os
+import uuid
+import mimetypes
+import MySQLdb
 import json
+import collections
+import falcon
+import sys
+
 from model.user import User
 
 # Falcon follows the REST architectural style, meaning (among
 # other things) that you think in terms of resources and state
 # transitions, which map to HTTP verbs.
+
 class Users(object):
-    def on_get(self, req, resp):
-        """Handles GET requests"""
-        resp.status = falcon.HTTP_200  # This is the default status
-        user = User(1, 'João', 'example@example.com', 20, '123456')
-        resp.body = (json.dumps(user.__dict__))
+	def on_get(self, req, resp):
+		#"""GET"""
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		cursor = db.cursor()
+		resp.status = falcon.HTTP_200  # Ok!
+		#Executa a query
+		cursor.execute("SELECT id, nome, email, idade FROM users")
+		#Recebe todos os resultados
+		query = cursor.fetchall()
+		#Cria uma lista guardar os dados convertidos
+		queryObjects = []
+		#Converte
+		for q in query:
+				user = User(q[0], q[1], q[2], q[3])
+				queryObjects.append(user.__dict__)
+		resp.body = json.dumps(queryObjects)
+		db.close()
+	def on_post(self, req, resp):
+		#Ainda nao funciona.
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		cursor = db.cursor()
+
+		resp.status = falcon.HTTP_201 
+		body = req.stream.read()
+		newusersql = self.mountUser(body)
+		equery = "INSERT INTO users (nome, email, idade, senha) VALUES (%s, %s, %s, %s)"
+
+		try:
+			cursor.execute(equery, (newusersql['name'], newusersql['email'], newusersql['age'], newusersql['password'],))
+			db.commit()
+		except:
+		 	db.rollback()
+		 	print "Insert ERROR: ", sys.exc_info()[0]
+		 	resp.status = falcon.HTTP_500
+
+		resp.body = body
+		db.close()
+	def mountUser(self, uData):
+		return json.loads(uData)		
