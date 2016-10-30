@@ -18,9 +18,9 @@ Api in development for the platform described above, includes the following meth
 
 |   URL             | VERB   | BODY    | RESULT              |
 | ---               |  ---   |  ---    | ---                 |
-| /users            | GET    | empty   |   Take all users    | 
-| /user/{id}        | GET    | empty   |   Take a user by id | 
-| /user/{e-mail}    | GET    | empty   |   Take all users    | 
+| /users            | GET    | empty   |   Return all users    | 
+| /user/{id}        | GET    | empty   |   Return a user by given id | 
+| /user/email/{e-mail}    | GET    | empty   |   Return a user by given email    | 
 | /user             | POST   | JSON    |   Add a user       | 
 | /user/{id}        | DELETE | empty   |   Delete user by id | 
 | /login            | GET    | empty   |   +++++++++++       | 
@@ -43,7 +43,7 @@ For easier management of pip packages, it's recommended to use [virtualenv](http
 To run the api server do the following: 
 
 1. Clone the project: `$ git clone git@github.com:Processos-de-software-2016-2/python-api.git`;
-2. Run the server: `gunicorn api:app`;
+2. Run the server: `gunicorn main:app`;
 3. Make a HTTP request on port 8000 to any of the URLs listed in API Description section.
 
 # How to Contribute
