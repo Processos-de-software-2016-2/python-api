@@ -21,12 +21,7 @@ Api in development for the platform described above, includes the following meth
 | /users            | GET    | empty   | |   Return all users    | 
 | /user/{id}        | GET    | empty   | |   Return a user by given id | 
 | /user/email/{e-mail}    | GET    | empty   | |   Return a user by given email    | 
-| /user             | POST   | JSON    | {  
-   "name":"Victor",
-   "email":"example@example.com",
-   "age":"21",
-   "password":"123456"
-} |   Add a user       | 
+| /user             | POST   | JSON    | {"name":"Example","email":"example@example.com","age":"21","password":"123456"} |   Add a user       | 
 | /user/{id}        | DELETE | empty   | |   Delete user by id | 
 | /login            | GET    | empty   | |   +++++++++++       | 
 | /users      | GET    | empty   | |   Take all users  | 
