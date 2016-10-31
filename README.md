@@ -17,15 +17,15 @@ This component is responsible for create an API for use in web and android versi
 Api in development for the platform described above, includes the following methods: 
 
 |   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
-| ---               |  ---   |  ---    | | ---                 |
-| /users            | GET    | empty   | |   Return all users    | 
-| /user/{id}        | GET    | empty   | |   Return a user by given id | 
-| /user/email/{e-mail}    | GET    | empty   | |   Return a user by given email    | 
-| /user             | POST   | JSON    | {"name":"Example","email":"example@example.com","age":"21","password":"123456"} |   Add a user       | 
-| /user/{id}        | DELETE | empty   | |   Delete user by id | 
-| /login            | GET    | empty   | |   +++++++++++       | 
-| /users      | GET    | empty   | |   Take all users  | 
-| /users      | GET    | empty   | |   Take all users  | 
+| ---               |  ---   |  ---    | ---     | ---                 |
+| /users            | GET    | empty   | ---     |   Return all users    | 
+| /user/{id}        | GET    | empty   | ---     |   Return a user by given id | 
+| /user/email/{e-mail}    | GET    | empty   | --- |   Return a user by given email    | 
+| /user             | POST   | JSON    | {<br/>"name":"Example",<br/>"email":"example@example.com",<br/>"age":"21",<br/>"password":"123456"<br/>} |   Add a user | 
+| /user/{id}        | DELETE | empty   | ---     |   Delete user by id | 
+| /login            | GET    | empty   | ---     |   +++++++++++       | 
+| /users      | GET    | empty   | ---     |   Take all users  | 
+| /users      | GET    | empty   | ---     |   Take all users  | 
 
 ## Getting Started
 ### Installing prerequisites
