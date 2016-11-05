@@ -74,6 +74,26 @@ class User(object):
 
 		resp.body = body
 		db.close()
+
+	def on_delete(self, req, resp, id):
+		#cria a conexão e o cursor
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		cursor = db.cursor()
+		#Recebe o id
+		userid = id
+		#forma a query
+		equery = "DELETE FROM users WHERE id = %s"
+		#Executa
+		try:
+			cursor.execute(equery, userid)
+			db.commit()
+			resp.status = falcon.HTTP_201 
+		except:
+			db.rollback()
+			print "Insert ERROR: ", sys.exc_info()[0]
+			resp.status = falcon.HTTP_500
+		db.close()
+
 	def mountUser(self, uData):
 		return json.loads(uData)
 
