@@ -33,9 +33,11 @@ To use the api server you will need Python 3, Falcon and a WSGI Server (in our p
 
 To run our api server you will need to do this following steps one time:
 
-1. Install python-pip if you don't have it;
-2. Install falcon using pip: `# pip install falcon`;
-3. Install gunicorn using pip: `# pip install gevent gunicorn`.
+1. Install python-pip and mysql-server if you don't have it;
+2. Install the mysql client lib if you don't have it: `sudo apt-get install libmysqlclient-dev`;
+3. Install python mysql lib: `# pip install MySQL-python`;
+4. Install falcon using pip: `# pip install falcon`;
+5. Install gunicorn using pip: `# pip install gevent gunicorn`.
 
 For easier management of pip packages, it's recommended to use [virtualenv](https://virtualenv.pypa.io/en/stable/). It creates isolated Python environments, and does not need superuser privileges to install packages. 
 
