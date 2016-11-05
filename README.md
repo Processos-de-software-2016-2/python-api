@@ -45,7 +45,7 @@ For easier management of pip packages, it's recommended to use [virtualenv](http
 To run the api server do the following: 
 
 1. Clone the project: `$ git clone git@github.com:Processos-de-software-2016-2/python-api.git`;
-2. Run the server: `gunicorn main:app`;
+2. Run the server: `gunicorn main:app --bind 0.0.0.0:<desired_port>`;
 3. Make a HTTP request on port 8000 to any of the URLs listed in API Description section.
 
 # How to Contribute
