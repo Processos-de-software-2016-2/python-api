@@ -68,12 +68,32 @@ class User(object):
 			cursor.execute(equery, (newusersql['name'], newusersql['email'], newusersql['age'], newusersql['password'],))
 			db.commit()
 		except:
-		 	db.rollback()
-		 	print "Insert ERROR: ", sys.exc_info()[0]
-		 	resp.status = falcon.HTTP_500
+			db.rollback()
+			print "Insert ERROR: ", sys.exc_info()[0]
+			resp.status = falcon.HTTP_500
 
 		resp.body = body
 		db.close()
+
+	def on_delete(self, req, resp, id):
+		#cria a conexAo e o cursor
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		cursor = db.cursor()
+		#Recebe o id
+		userid = id
+		#forma a query
+		equery = "DELETE FROM users WHERE id = %s"
+		#Executa
+		try:
+			cursor.execute(equery, userid)
+			db.commit()
+			resp.status = falcon.HTTP_200
+		except:
+			db.rollback()
+			print "Insert ERROR: ", sys.exc_info()[0]
+			resp.status = falcon.HTTP_500
+		db.close()
+
 	def mountUser(self, uData):
 		return json.loads(uData)
 
@@ -95,4 +115,4 @@ class UserEmail(object):
 				user = UserModel(q[0], q[1], q[2], q[3])
 				queryObjects.append(user.__dict__)
 		resp.body = json.dumps(queryObjects)
-		db.close()		
+		db.close()      
