@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 24-Out-2016 às 19:04
--- Versão do servidor: 10.1.18-MariaDB
--- PHP Version: 7.0.11
+-- Generation Time: 13-Nov-2016 às 18:45
+-- Versão do servidor: 10.1.19-MariaDB
+-- PHP Version: 7.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -34,6 +34,19 @@ CREATE TABLE `users` (
   `senha` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `users_info`
+--
+
+CREATE TABLE `users_info` (
+  `id` int(11) NOT NULL,
+  `facebook` varchar(100) DEFAULT NULL,
+  `whatsapp` int(11) DEFAULT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -45,6 +58,13 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users_info`
+--
+ALTER TABLE `users_info`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_users_info_user_idx` (`id_user`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -52,7 +72,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `users_info`
+--
+ALTER TABLE `users_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `users_info`
+--
+ALTER TABLE `users_info`
+  ADD CONSTRAINT `fk_users_info_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
