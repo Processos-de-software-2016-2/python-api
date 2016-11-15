@@ -74,3 +74,27 @@ class UserInfo(object):
 			resp.status = falcon.HTTP_500
 		db.close()
 
+	def on_put(self, req, resp):
+		#Ainda nao funciona.
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		cursor = db.cursor()
+
+		resp.status = falcon.HTTP_200
+		body = req.stream.read()
+		newusersql = self.mountUserInfo(body)
+		equery = "UPDATE users_info SET facebook = %s, whatsapp = %s WHERE id_user = %s"
+
+		try:
+			cursor.execute(equery, (newusersql['facebook'], newusersql['whatsapp'], newusersql['id_user'],))
+			db.commit()
+		except:
+			db.rollback()
+			print "Update ERROR: ", sys.exc_info()[0]
+			resp.status = falcon.HTTP_500
+
+		resp.body = body
+		db.close()
+
+	def mountUserInfo(self, uData):
+		return json.loads(uData)
+
