@@ -116,3 +116,32 @@ class UserEmail(object):
 				queryObjects.append(user.__dict__)
 		resp.body = json.dumps(queryObjects)
 		db.close()      
+
+class Login(object):
+	def on_get(self, req, resp):
+		#"""GET"""
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		cursor = db.cursor()
+		resp.status = falcon.HTTP_200  # Ok!
+		#Executa a query
+
+		body = req.stream.read()
+		user = self.mountUser(body)
+
+		sql = "SELECT true FROM users WHERE email = '%s' and senha = '%s'" % (user['email'], user['password'])
+		cursor.execute(sql)
+		#conta os resultados
+		rows = cursor.rowcount
+
+		result = {'logged' : True}
+		
+		if(rows <= 0):
+			resp.status = falcon.HTTP_403
+			result = {'logged' : False}
+
+		resp.body = json.dumps(result)
+
+		db.close()  
+
+	def mountUser(self, uData):
+		return json.loads(uData)
