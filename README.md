@@ -27,7 +27,7 @@ Api in development for the platform described above, includes the following meth
 | /infos      		| GET    | empty   | ---     |   Return all users information  | 
 | /info/{id_user}   | GET    | empty   | ---     |   Return an specific user information | 
 | /info/{id_user}   | DELETE    | empty   | ---     |   Delete user info by an user id | 
-| /info   			| UPDATE    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Update user information by an user id |
+| /info   			| PUT    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Update user information by an user id |
 
 ## Getting Started
 ### Installing prerequisites
