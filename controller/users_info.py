@@ -55,3 +55,22 @@ class UserInfo(object):
 		resp.body = json.dumps(queryObjects)
 		db.close()
 
+	def on_delete(self, req, resp, id):
+		#cria a conexAo e o cursor
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		cursor = db.cursor()
+		#Recebe o id
+		userid = id
+		#forma a query
+		equery = "DELETE FROM users_info WHERE id_user = %s"
+		#Executa
+		try:
+			cursor.execute(equery, userid)
+			db.commit()
+			resp.status = falcon.HTTP_200
+		except:
+			db.rollback()
+			print "Insert ERROR: ", sys.exc_info()[0]
+			resp.status = falcon.HTTP_500
+		db.close()
+
