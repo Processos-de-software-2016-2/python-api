@@ -28,7 +28,7 @@ CREATE TABLE `users` (
 -- Estrutura da tabela `users_info`
 --
 CREATE TABLE IF NOT EXISTS `users_info` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `facebook` varchar(100) DEFAULT NULL,
   `whatsapp` bigint(11) DEFAULT NULL,
   `id_user` int(11) NOT NULL,
