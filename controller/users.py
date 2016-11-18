@@ -64,10 +64,11 @@ class User(object):
 
 		try:
 			cursor.execute(equery, (newusersql['name'], newusersql['email'], newusersql['age'], newusersql['password'],))
-			db.commit()
 			cursor.execute("SELECT LAST_INSERT_ID() FROM users");
-			body = cursor.fetchone()
+			result = {'id': int(cursor.fetchone()[0])}
+			resp.body = json.dumps(result)
 			resp.status = falcon.HTTP_201 
+			db.commit()
 		except:
 			db.rollback()
 			print "Insert ERROR: ", sys.exc_info()[0]

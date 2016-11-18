@@ -62,10 +62,10 @@ class UserInfo(object):
 		#Recebe o id
 		userid = id
 		#forma a query
-		equery = "DELETE FROM users_info WHERE id_user = %s"
+		equery = "DELETE FROM users_info WHERE id_user = %s" % (userid)
 		#Executa
 		try:
-			cursor.execute(equery, userid)
+			cursor.execute(equery)
 			db.commit()
 			resp.status = falcon.HTTP_200
 		except:
@@ -74,7 +74,7 @@ class UserInfo(object):
 			resp.status = falcon.HTTP_500
 		db.close()
 
-	def on_put(self, req, resp, id):
+	def on_put(self, req, resp):
 		#Ainda nao funciona.
 		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
 		cursor = db.cursor()
@@ -108,14 +108,15 @@ class UserInfo(object):
 		try:
 			#executa a query e comita
 			cursor.execute(equery, (newusersql['facebook'], newusersql['whatsapp'], newusersql['id_user'],))
-			db.commit()
 			#recebe a id do novo user_info, e retorna o valor
-			cursor.execute("SELECT id FROM users_info WHERE id_user = %s", newusersql['id_user'] )
-			body = cursor.fetchone()
-			resp.status = falcon.HTTP_200
+			cursor.execute("SELECT LAST_INSERT_ID() FROM users_info")
+			result = {'id': cursor.fetchone()[0]}
+			resp.body = json.dumps(result)
+			resp.status = falcon.HTTP_201
+			db.commit()
 		except:
 			db.rollback()
-			print "Update ERROR: ", sys.exc_info()[0]
+			print "iNSERT ERROR: ", sys.exc_info()[0]
 			resp.status = falcon.HTTP_500
 			resp.body = "Erro ao alterar o banco de dados! As informacoes do usuario nao foram inseridas."
 		db.close()
