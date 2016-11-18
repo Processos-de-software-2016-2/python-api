@@ -15,13 +15,13 @@ class Aux:
                 raise ApiError('POST/{}'.format(resp.status_code))
         return response.status_code
 
-   def deleteFuncition(self, urlbase, url,idd):
+    def deleteFuncition(self, urlbase, url,idd):
         response = requests.get(urlbase+url+idd)
         if response.status_code != 200:
                 raise ApiError('DELETE/{}'.format(resp.status_code))
         return response.status_code
 
-   def 	putFuncition(self, urlbase, url, param):
+    def  putFuncition(self, urlbase, url, param):
         response = requests.get(urlbase+url, json=param)
         if response.status_code != 200:
                 raise ApiError('put/{}'.format(resp.status_code))
@@ -30,40 +30,40 @@ class Aux:
 
 class FunTest(unittest.TestCase):
     
-    urlbase = ""
+    urlbase = "http://localhost:8000"
     aux = Aux()
 
     def testPost(self):
         url= "/user"
-        param = { "name":"Teste","email":"teste@teste.com","age":"21","password":"123456"}
-        self.assertEqual(aux.postFuncition(urlbase, url, param), 201)
+        param = { "name":"Teste","email":"asdsada9djq0aj@90asdjsa0d9asjd9a.c0m","age":"21","password":"123456"}
+        self.assertEqual(self.aux.postFuncition(self.urlbase, url, param), 201)
         
-        url = "/user/email/teste@teste.com"
-        json = aux.getFuncition(urlbase, url)
+        url = "/user/email/asdsada9djq0aj@90asdjsa0d9asjd9a.c0m"
+        json = self.aux.getFuncition(self.urlbase, url)
         idd = json['id']
 
         url = "/user/" 
-        deleteFuncition(urlbase, url,idd)
+        deleteFuncition(self.urlbase, url,idd)
 
     def testGetByEmail(self):
         url= "/user"
-        param = { "name":"Teste","email":"teste@teste.com","age":"21","password":"123456"}
-        aux.postFuncition(urlbase, url, param)
+        param = { "name":"Teste","email":"asdsada9djq0aj@90asdjsa0d9asjd9a.c0m","age":"21","password":"123456"}
+        self.aux.postFuncition(self.urlbase, url, param)
         
-        url = "/user/email/teste@teste.com"
-        json = aux.getFuncition(urlbase, url)
-        self.assertEqual(json['email'], "teste@teste.com")
+        url = "/user/email/asdsada9djq0aj@90asdjsa0d9asjd9a.c0m"
+        json = self.aux.getFuncition(self.urlbase, url)
+        self.assertEqual(json['email'], "asdsada9djq0aj@90asdjsa0d9asjd9a.c0m")
 
         idd = json['id']
         url = "/user/" 
-        deleteFuncition(urlbase, url,idd)
+        deleteFuncition(self.urlbase, url,idd)
 
     def testDelete(self):
         url= "/user"
-        param = { "name":"Teste","email":"teste@teste.com","age":"21","password":"123456"}      
+        param = { "name":"Teste","email":"asdsada9djq0aj@90asdjsa0d9asjd9a.c0m","age":"21","password":"123456"}      
         
-        url = "/user/email/teste@teste.com"
-        json = aux.getFuncition(urlbase, url)
+        url = "/user/email/asdsada9djq0aj@90asdjsa0d9asjd9a.c0m"
+        json = self.aux.getFuncition(self.urlbase, url)
 
         idd = json['id']
         url = "/user/" 
