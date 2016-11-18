@@ -23,10 +23,11 @@ Api in development for the platform described above, includes the following meth
 | /user/email/{e-mail}    | GET    | empty   | --- |   Return a user by given email    | 
 | /user             | POST   | JSON    | {<br/>"name":"Example",<br/>"email":"example@example.com",<br/>"age":"21",<br/>"password":"123456"<br/>} |   Add a user | 
 | /user/{id}        | DELETE | empty   | ---     |   Delete user by id | 
-| /login            | GET    | JSON   | {<br/>"email":"example@example.com",<br/>"password":"123456"<br/>}     |   Retora um JSON com o conteúdo "logged" (se false algo deu errado se true deu certo) |
+| /login            | GET    | JSON   | {<br/>"email":"example@example.com",<br/>"password":"123456"<br/>}     |   Return a JSON with "logged" (if false something the user is not logged and if true the user is logged) |
 | /infos      		| GET    | empty   | ---     |   Return all users information  | 
 | /info/{id_user}   | GET    | empty   | ---     |   Return an specific user information | 
 | /info/{id_user}   | DELETE    | empty   | ---     |   Delete user info by an user id | 
+| /info   			| POST    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Insert user information by an user id |
 | /info   			| PUT    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Update user information by an user id |
 
 ## Getting Started
