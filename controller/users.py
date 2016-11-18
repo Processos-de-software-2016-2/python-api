@@ -54,12 +54,10 @@ class User(object):
 				queryObjects.append(user.__dict__)
 		resp.body = json.dumps(queryObjects)
 		db.close()
+		
 	def on_post(self, req, resp):
-		#Ainda nao funciona.
 		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
 		cursor = db.cursor()
-
-		resp.status = falcon.HTTP_201 
 		body = req.stream.read()
 		newusersql = self.mountUser(body)
 		equery = "INSERT INTO users (nome, email, idade, senha) VALUES (%s, %s, %s, %s)"
@@ -67,12 +65,14 @@ class User(object):
 		try:
 			cursor.execute(equery, (newusersql['name'], newusersql['email'], newusersql['age'], newusersql['password'],))
 			db.commit()
+			cursor.execute("SELECT LAST_INSERT_ID() FROM users");
+			body = cursor.fetchone()
+			resp.status = falcon.HTTP_201 
 		except:
 			db.rollback()
 			print "Insert ERROR: ", sys.exc_info()[0]
 			resp.status = falcon.HTTP_500
-
-		resp.body = body
+			resp.body = "Erro ao alterar o banco de dados! Usuario nao foi inserido."
 		db.close()
 
 	def on_delete(self, req, resp, id):

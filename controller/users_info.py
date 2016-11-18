@@ -74,11 +74,11 @@ class UserInfo(object):
 			resp.status = falcon.HTTP_500
 		db.close()
 
-	def on_put(self, req, resp):
+	def on_put(self, req, resp, id):
 		#Ainda nao funciona.
 		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
 		cursor = db.cursor()
-
+		#Recebe o id do usuario
 		resp.status = falcon.HTTP_200
 		body = req.stream.read()
 		newusersql = self.mountUserInfo(body)
@@ -93,6 +93,31 @@ class UserInfo(object):
 			resp.status = falcon.HTTP_500
 
 		resp.body = body
+		db.close()
+
+	def on_post(self, req, resp):
+		#cria a conexao e o cursor
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		cursor = db.cursor()
+		#Le os dados
+		body = req.stream.read()
+		newusersql = self.mountUserInfo(body)
+		#Forma a query
+		equery = "INSERT INTO users_info (facebook, whatsapp, id_user) VALUES (%s, %s, %s)"
+
+		try:
+			#executa a query e comita
+			cursor.execute(equery, (newusersql['facebook'], newusersql['whatsapp'], newusersql['id_user'],))
+			db.commit()
+			#recebe a id do novo user_info, e retorna o valor
+			cursor.execute("SELECT id FROM users_info WHERE id_user = %s", newusersql['id_user'] )
+			body = cursor.fetchone()
+			resp.status = falcon.HTTP_200
+		except:
+			db.rollback()
+			print "Update ERROR: ", sys.exc_info()[0]
+			resp.status = falcon.HTTP_500
+			resp.body = "Erro ao alterar o banco de dados! As informacoes do usuario nao foram inseridas."
 		db.close()
 
 	def mountUserInfo(self, uData):
