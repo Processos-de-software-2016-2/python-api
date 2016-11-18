@@ -14,7 +14,7 @@ USE `processodesoftware` ;
 --
 -- Estrutura da tabela `users`
 --
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
