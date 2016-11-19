@@ -107,6 +107,18 @@ CREATE TABLE IF NOT EXISTS `user_match` (
     ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `pictures` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `filename` varchar(100) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_pictures_user_idx`
+    FOREIGN KEY (`id_user`)
+    REFERENCES `processodesoftware`.`users` (`id`)
+  ON DELETE CASCADE -- Nao existe mais o usuario que referencia esse objeto
+  ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 -- Alterações das tabelas para não quebrar nada.
 ALTER TABLE users
 ADD UNIQUE INDEX `email_UNIQUE` (`email` ASC);
