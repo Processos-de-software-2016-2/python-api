@@ -29,6 +29,8 @@ Api in development for the platform described above, includes the following meth
 | /info/{id_user}   | DELETE    | empty   | ---     |   Delete user info by an user id | 
 | /info   			| POST    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Insert user information by an user id |
 | /info   			| PUT    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Update user information by an user id |
+| /picture/{id_user}| GET    | empty   | ---     |   Return an url in format '/uploaded_pictures/<filename>' you might add server url before |
+| /picture 			| POST   | {"type": "<imagetype (png|jpg|gif)>", "bytecode": "<imagebase64bytecode>", "id_user": 1}   | ---     |   Upload an image on server to a given user |
 
 ## Getting Started
 ### Installing prerequisites
