@@ -64,7 +64,7 @@ To run the api server do the following:
 - [Daniel Tiago de Souza Brito](https://github.com/danielmanfred)
 - [João Eduardo Medeiros](https://github.com/joaomedeiros95)
 - [Stefano Momo Loss](https://github.com/Stefano10)
-- [victorsv](https://github.com/victorsv)
+- [Victor Santiago Valente](https://github.com/victorsv)
 - [Vinícius Kleiton da Trindade Ramos](https://github.com/Vinnykt)
 
 # Other Parts of this Project 
