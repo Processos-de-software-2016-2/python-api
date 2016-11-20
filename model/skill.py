@@ -2,7 +2,6 @@
 
 class SkillModel(object):
 
-	def __init__(self, id, id_user, id_skill):
+	def __init__(self, id, name):
 		self.id = id
-		self.id_user = id_user
-		self.id_skill = id_skill
+		self.name = name
