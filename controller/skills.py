@@ -1,4 +1,4 @@
-#users.py
+#skills.py
 
 import os
 import uuid
@@ -29,7 +29,7 @@ class Skills(object):
 			queryObjects = []
 			#Converte
 			for q in query:
-					skill = UserModel(q[0], q[1])
+					skill = SkillModel(q[0], q[1])
 					queryObjects.append(skill.__dict__)
 			#Retorna a resposta
 			resp.status = falcon.HTTP_200  # Ok!
