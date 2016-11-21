@@ -83,10 +83,10 @@ class User(object):
 		#Recebe o id
 		userid = id
 		#forma a query
-		equery = "DELETE FROM users WHERE id = %s"
+		equery = "DELETE FROM users WHERE id = %s" % (userid)
 		#Executa
 		try:
-			cursor.execute(equery, userid)
+			cursor.execute(equery)
 			db.commit()
 			resp.status = falcon.HTTP_200
 		except:
