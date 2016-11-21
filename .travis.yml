@@ -13,4 +13,4 @@ services:
 
 script:
   - sudo apt-get install mysql-server
-  - pytest -t test
+  - pytest test
