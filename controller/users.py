@@ -91,7 +91,7 @@ class User(object):
 			resp.status = falcon.HTTP_200
 		except:
 			db.rollback()
-			print "Insert ERROR: ", sys.exc_info()[0]
+			print "Delete ERROR: ", sys.exc_info()
 			resp.status = falcon.HTTP_500
 		db.close()
 
