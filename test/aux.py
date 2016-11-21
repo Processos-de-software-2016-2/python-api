@@ -24,7 +24,7 @@ class Aux:
     	return response.status_code
 
     def putFunction(self,urlbase, url, param):
-        response = requests.get(urlbase+url, json=param)
+        response = requests.put(urlbase+url, json=param)
         if response.status_code != 200:
                 raise Exception("Error at function PUT - Code: "+ str(response.status_code))
         return response
