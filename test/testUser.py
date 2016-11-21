@@ -1,11 +1,12 @@
 import unittest
 import json
+
 from aux import Aux
 
 class FunTest(unittest.TestCase):
+
     aux = Aux()
     urlbase = "http://159.203.75.66:8000"
-
 
     def testPost(self):
              url= "/user"
@@ -33,7 +34,6 @@ class FunTest(unittest.TestCase):
     def testDelete(self):
              url= "/user"
              param = { "name":"Teste","email":"teste@teste.com","age":"21","password":"123456"}
-
              url = "/user/email/teste@teste.com"
              res = self.aux.getFunction(self.urlbase, url)
              idd = json.loads(res)[0]['id']
