@@ -6,7 +6,7 @@ from aux import Aux
 class FunTest(unittest.TestCase):
 
     aux = Aux()
-    urlbase = "http://localhost:8000"
+    urlbase = "http://127.0.0.1:8000"
 
     def testPost(self):
              url= "/user"
