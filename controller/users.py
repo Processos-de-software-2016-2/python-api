@@ -83,15 +83,15 @@ class User(object):
 		#Recebe o id
 		userid = id
 		#forma a query
-		equery = "DELETE FROM users WHERE id = %s"
+		equery = "DELETE FROM users WHERE id = %s" % (userid)
 		#Executa
 		try:
-			cursor.execute(equery, userid)
+			cursor.execute(equery)
 			db.commit()
 			resp.status = falcon.HTTP_200
 		except:
 			db.rollback()
-			print "Insert ERROR: ", sys.exc_info()[0]
+			print "Delete ERROR: ", sys.exc_info()
 			resp.status = falcon.HTTP_500
 		db.close()
 

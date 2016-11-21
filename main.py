@@ -9,6 +9,7 @@ from gevent import socket
 from controller.users import *
 from controller.users_info import *
 from controller.image import *
+from controller.skills import *
 
 # falcon.API instances are callable WSGI apps
 app = falcon.API()
@@ -24,3 +25,5 @@ app.add_route('/info', UserInfo())
 app.add_route('/info/{id}', UserInfo())
 app.add_route('/picture', Images())
 app.add_route('/picture/{id}', Images())
+app.add_route('/skill', Skills())
+app.add_route('/skill/{id}', Skill())
