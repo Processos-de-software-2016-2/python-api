@@ -18,5 +18,5 @@ services:
 script:
   - sudo apt-get install mysql-server
   - sudo apt-get install libmysqlclient-dev
-  - gunicorn main:app --bind 0.0.0.0:8000
+  - gunicorn main:app --bind 0.0.0.0:8000 &
   - pytest test
