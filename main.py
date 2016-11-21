@@ -9,6 +9,7 @@ from gevent import socket
 from controller.users import *
 from controller.users_info import *
 from controller.image import *
+from controller.skills import *
 
 # falcon.API instances are callable WSGI apps
 app = falcon.API()

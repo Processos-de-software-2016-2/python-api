@@ -22,7 +22,7 @@ class Skills(object):
 		cursor = db.cursor()
 		try:
 			#Executa a query
-			cursor.execute("SELECT id, nome FROM skills")
+			cursor.execute("SELECT id, name FROM skills")
 			#Recebe todos os resultados
 			query = cursor.fetchall()
 			#Cria uma lista guardar os dados convertidos
@@ -35,9 +35,9 @@ class Skills(object):
 			resp.status = falcon.HTTP_200  # Ok!
 			resp.body = json.dumps(queryObjects)
 		except:
-			print "GET ERROR: ", sys.exc_info()[0]
+			print "GET ERROR: ", sys.exc_info()
 			resp.status = falcon.HTTP_500
-			esp.body = "Erro ao executar o acesso."
+			resp.body = "Erro ao executar o acesso."
 		db.close()
 
 class Skill(object):
@@ -47,7 +47,7 @@ class Skill(object):
 		cursor = db.cursor()
 		try:
 			#Executa a query
-			sql = "SELECT id, nome FROM skills WHERE id = %d" % (id)
+			sql = "SELECT id, name FROM skills WHERE id = %s" % (id)
 			cursor.execute(sql)
 			#Recebe todos os resultados
 			query = cursor.fetchall()
@@ -61,7 +61,7 @@ class Skill(object):
 			resp.status = falcon.HTTP_200  # Ok!
 			resp.body = json.dumps(queryObjects)
 		except:
-			print "GET ERROR: ", sys.exc_info()[0]
+			print "GET ERROR: ", sys.exc_info()
 			resp.status = falcon.HTTP_500
 			resp.body = "Erro ao executar o acesso."
 		db.close()
