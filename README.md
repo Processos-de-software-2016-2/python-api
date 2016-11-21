@@ -31,6 +31,9 @@ Api in development for the platform described above, includes the following meth
 | /info   			| PUT    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Update user information by an user id |
 | /picture/{id_user}| GET    | empty   | ---     |   Return an url in format '/uploaded_pictures/filename.type' you might add server url before |
 | /picture 			| POST   | JSON   | {<br/>"type": "imagetype (png OR jpg OR gif)", <br/>"bytecode": "imagebase64bytecode", <br/>"id_user": 1<br/>}     |   Upload an image on server to a given user |
+| /skill/        | GET    | empty   | ---     |   Return all skills | 
+| /skill/{id}        | GET    | empty   | ---     |   Return a skill by given id | 
+
 
 ## Getting Started
 ### Installing prerequisites
