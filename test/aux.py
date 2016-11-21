@@ -18,13 +18,13 @@ class Aux:
         return response.status_code
 
     def deleteFunction(self,urlbase, url,idd):
-	response = requests.get(urlbase+url+str(idd))
-	if response.status_code != 200:
-		raise Exception("Error at function DELETE - Code: "+ str(response.status_code))
-	return response.status_code
+            response1 = requests.delete(urlbase+url+str(idd))
+            if response1.status_code != 200:
+                    raise Exception("Error at function DELETE - Code: "+ str(response1.status_code))
+            return response1.status_code
 
     def putFunction(self,urlbase, url, param):
-        response = requests.get(urlbase+url, json=param)
+        response = requests.put(urlbase+url, json=param)
         if response.status_code != 200:
                 raise Exception("Error at function PUT - Code: "+ str(response.status_code))
         return response
