@@ -1,4 +1,4 @@
-user.py e skill.py
+#user.py e skill.py
 
 class UserSkillModel(object):
 	

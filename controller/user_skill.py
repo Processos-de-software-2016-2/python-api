@@ -8,6 +8,9 @@ import falcon
 import sys
 
 from model.user_skill import UserSkillModel
+from model.skill import SkillModel
+from model.user import UserModel
+
 
 # Falcon follows the REST architectural style, meaning (among
 # other things) that you think in terms of resources and state
@@ -36,7 +39,7 @@ class UserSkill(object):
         db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
         cursor = db.cursor()
         body = req.stream.read()
-        newusersql = self.mountUser(body)
+        newusersql = self.mountUserSkill(body)
         equery = "INSERT INTO user_skills (id_user, id_skill) VALUES (%s, %s)"
 
         try:
@@ -48,21 +51,23 @@ class UserSkill(object):
             db.commit()
         except:
             db.rollback()
-            print "Insert ERROR: ", sys.exc_info()[0]
+            print "Insert ERROR: ", sys.exc_info()
             resp.status = falcon.HTTP_500
-            resp.body = "Erro ao inserir Par: Usuário-Habilidade"
+            resp.body = "Erro ao inserir Par: Usuario-Habilidade"
         db.close()
 
+    def mountUserSkill(self, uData):
+        return json.loads(uData)
 
 class UserSkill_Skill(object):
-    def on_get(self, req, resp, skillID):
+    def on_get(self, req, resp, id):
         #"""GET ALL USERS  WHO HAVE A SKILL ""
         db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
         cursor = db.cursor()
         resp.status = falcon.HTTP_200  # Ok!
-        skillID = int(skillID)
+        id = int(id)
         #Executa a query
-        sql = "SELECT id_user FROM user_skills WHERE skillID = %s" % (id_skill)
+        sql = "SELECT id_user FROM user_skills WHERE id_skill = %s" % (id)
         cursor.execute(sql)
         #Recebe todos os resultados
         query = cursor.fetchall()
@@ -85,14 +90,14 @@ class UserSkill_Skill(object):
         db.close()
 
 class UserSkill_User(object):
-    def on_get(self, req, resp, userID):
+    def on_get(self, req, resp, id):
         #"""GET ALL SKILLS  OF A  USER"
         db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
         cursor = db.cursor()
         resp.status = falcon.HTTP_200  # Ok!
-        userID = int(userID)
+        id = int(id)
         #Executa a query
-        sql = "SELECT id_skill FROM user_skills WHERE userID = %s" % (id_user)
+        sql = "SELECT id_skill FROM user_skills WHERE id_user = %d" % (id)
         cursor.execute(sql)
         #Recebe todos os resultados
         query = cursor.fetchall()
@@ -103,7 +108,7 @@ class UserSkill_User(object):
 
                 id = int(q[0])
                 #Executa a query
-                sql = "SELECT id, name FROM skills WHERE id = %s" % (id)
+                sql = "SELECT id, name FROM skills WHERE id = %d" % (id)
                 cursor.execute(sql)
                 #Recebe todos os resultados
                 query = cursor.fetchall()
