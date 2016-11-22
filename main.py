@@ -11,11 +11,8 @@ from controller.users_info import *
 from controller.image import *
 from controller.skills import *
 from controller.user_skill import *
-<<<<<<< HEAD
 from controller.user_interest import *
-=======
 from controller.users_match import *
->>>>>>> master
 
 # falcon.API instances are callable WSGI apps
 app = falcon.API()
