@@ -20,6 +20,8 @@ before_script:
 - mysql -u root -e "CREATE USER 'pds'@'localhost' IDENTIFIED BY 'pds';"
 - mysql -u root -e "GRANT ALL ON processodesoftware.* TO 'pds'@'localhost';"
 - echo "USE mysql;\nUPDATE user SET password=PASSWORD('123456') WHERE user='pds';\nFLUSH PRIVILEGES;\n" | mysql -u root
+- mysql -u root processodesoftware < bd.sql
+
 
 script:
   - sudo apt-get install mysql-server
