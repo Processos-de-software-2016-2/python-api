@@ -18,14 +18,17 @@ Api in development for the platform described above, includes the following meth
 
 |   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
 | ---               |  ---   |  ---    | ---     | ---                 |
+| /user             | POST   | JSON    | {<br/>"name":"Example",<br/>"email":"example@example.com",<br/>"age":"21",<br/>"password":"123456"<br/>} |   Add a user |
+| /user/{id}        | GET    | empty   | ---     |   Return a user by given id |
+| /user/{id}/skills  | GET    | empty   | ---     |   Return all skills of user = id |
+| /user/{id}/interests  | GET    | empty   | ---     |   Return all interests of user = id |
+| /user/email/{e-mail}    | GET    | empty   | --- |   Return a user by given email    |
+| /user/{id}        | DELETE | empty   | ---     |   Delete user by id |
 | /users            | GET    | empty   | ---     |   Return all users    |
 | /users/skills      | GET    | empty   | ---     |   Return all pair user-skill |
 | /users/skills      | POST    | JSON   |  {<br/> "id_user":"1", <br/>"id_skill":"2"<br/>}    |   Add a User-Skill relation |
-| /user/{id}        | GET    | empty   | ---     |   Return a user by given id |
-| /user/{id}/skills  | GET    | empty   | ---     |   Return all skills of user = id |
-| /user/email/{e-mail}    | GET    | empty   | --- |   Return a user by given email    | 
-| /user             | POST   | JSON    | {<br/>"name":"Example",<br/>"email":"example@example.com",<br/>"age":"21",<br/>"password":"123456"<br/>} |   Add a user | 
-| /user/{id}        | DELETE | empty   | ---     |   Delete user by id | 
+| /users/interests     | GET    | empty   | ---     |   Return all pair user-interest |
+| /users/interests      | POST    | JSON   |  {<br/> "id_user":"1", <br/>"id_skill":"2"<br/>}    |   Add a User-Interest relation |
 | /login            | GET    | JSON   | {<br/>"email":"example@example.com",<br/>"password":"123456"<br/>}     |   Return a JSON with "logged" (if false something the user is not logged and if true the user is logged) |
 | /infos      		| GET    | empty   | ---     |   Return all users information  | 
 | /info/{id_user}   | GET    | empty   | ---     |   Return an specific user information | 
@@ -36,7 +39,8 @@ Api in development for the platform described above, includes the following meth
 | /picture 			| POST   | JSON   | {<br/>"type": "imagetype (png OR jpg OR gif)", <br/>"bytecode": "imagebase64bytecode", <br/>"id_user": 1<br/>}     |   Upload an image on server to a given user |
 | /skill/        | GET    | empty   | ---     |   Return all skills | 
 | /skill/{id}        | GET    | empty   | ---     |   Return a skill by given id | 
-| /skill/{id}/users  | GET    | empty   | ---     |   Return all users that has skill id  | 
+| /skill/{id}/users  | GET    | empty   | ---     |   Return all users that has skill id  |
+| /interest/{id}/users  | GET    | empty   | ---     |   Return all users that has interest id  | 
 | /matches  | GET    | empty   | ---     |   Return all matches  | 
 | /matches/{id}  | GET    | empty   | ---     |   Return all matches for an giver user_id  | 
 | /matches  | POST    | JSON   | {<br/>"id_user_not":"16", <br/>"id_user_has":"1ad8", <br/>"id_skill": "2"<br/>}     |   Insert a match  | 
