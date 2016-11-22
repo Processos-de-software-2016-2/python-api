@@ -22,9 +22,11 @@ before_script:
 - echo "USE mysql;\nUPDATE user SET password=PASSWORD('123456') WHERE user='pds';\nFLUSH PRIVILEGES;\n" | mysql -u root
 - mysql -u root processodesoftware < bd.sql
 
-
 script:
   - sudo apt-get install mysql-server
   - sudo apt-get install libmysqlclient-dev
   - gunicorn main:app --bind 0.0.0.0:8000 &
   - pytest test
+
+notifications:
+  slack: processosdesoftware:4Zi0F7Ktu2A4Id3xBlz4M8Wx
