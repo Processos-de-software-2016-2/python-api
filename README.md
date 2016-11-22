@@ -40,7 +40,6 @@ Api in development for the platform described above, includes the following meth
 | /skill/        | GET    | empty   | ---     |   Return all skills | 
 | /skill/{id}        | GET    | empty   | ---     |   Return a skill by given id | 
 | /skill/{id}/users  | GET    | empty   | ---     |   Return all users that has skill id  |
-| /interest/{id}        | GET    | empty   | ---     |   Return a interest by given id | 
 | /interest/{id}/users  | GET    | empty   | ---     |   Return all users that has interest id  | 
 | /matches  | GET    | empty   | ---     |   Return all matches  | 
 | /matches/{id}  | GET    | empty   | ---     |   Return all matches for an giver user_id  | 
