@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Processos-de-software-2016-2/python-api.svg?branch=master)](https://travis-ci.org/Processos-de-software-2016-2/Travis)
+[![Build Status](https://travis-ci.org/Processos-de-software-2016-2/python-api.svg?branch=master)](https://travis-ci.org/Processos-de-software-2016-2/python-api)
 
 # About the project
 
