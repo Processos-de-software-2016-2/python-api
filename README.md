@@ -43,8 +43,8 @@ Api in development for the platform described above, includes the following meth
 ### Picture
 |   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
 | ---               |  ---   |  ---    | ---     | ---                 |
-| /picture/{id_user}| GET    | empty   | ---     |   Return an url in format '/uploaded_pictures/filename.type' you might add server url before |
-| /picture 			| POST   | JSON   | {<br/>"type": "imagetype (png OR jpg OR gif)", <br/>"bytecode": "imagebase64bytecode", <br/>"id_user": 1<br/>}     |   Upload an image on server to a given user |
+| /user/picture/{id_user}| GET    | empty   | ---     |   Return an url in format '/uploaded_pictures/filename.type' you might add server url before |
+| /user/picture 			| POST   | JSON   | {<br/>"type": "imagetype (png OR jpg OR gif)", <br/>"bytecode": "imagebase64bytecode", <br/>"id_user": 1<br/>}     |   Upload an image on server to a given user |
 
 ### Login
 |   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
