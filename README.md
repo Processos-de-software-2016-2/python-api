@@ -1,3 +1,5 @@
+![alt tag](https://travis-ci.org/Processos-de-software-2016-2/python-api.svg?branch=master)
+
 # About the project
 
 The project is a platform in which the users will be able to exchange knowledge through it. You can learn from playing the guitar to the basics of a programming language, in which there will be a knowledge exchange, meaning that since you will be teaching someone else, it is expected that you too will be learning from your study partner.
