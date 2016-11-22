@@ -50,19 +50,19 @@ class UserSkill(object):
             db.rollback()
             print "Insert ERROR: ", sys.exc_info()[0]
             resp.status = falcon.HTTP_500
-            resp.body = "Erro ao inserir -----"
+            resp.body = "Erro ao inserir Par: Usuário-Habilidade"
         db.close()
 
 
-class UserSkillSkill(object):
+class UserSkill_Skill(object):
     def on_get(self, req, resp, skillID):
         #"""GET ALL USERS  WHO HAVE A SKILL ""
         db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
         cursor = db.cursor()
         resp.status = falcon.HTTP_200  # Ok!
-        id = int(id)
+        skillID = int(skillID)
         #Executa a query
-        sql = "SELECT id_user FROM user_skills WHERE skillID = %d" % (id_skill)
+        sql = "SELECT id_user FROM user_skills WHERE skillID = %s" % (id_skill)
         cursor.execute(sql)
         #Recebe todos os resultados
         query = cursor.fetchall()
@@ -70,19 +70,29 @@ class UserSkillSkill(object):
         queryObjects = []
         #Converte
         for q in query:
-                #BUSCAR OS DADOS DO USUÁRIO COM O ID =q[0]
+
+                    id = int(q[0])
+                    #Executa a query
+                    sql = "SELECT id, nome, email, idade FROM users WHERE id = %d" % (id)
+                    cursor.execute(sql)
+                    #Recebe todos os resultados
+                    query = cursor.fetchall()
+                    #Converte
+                    user = UserModel(query[0][0], query[0][1], query[0][2], query[0][3])
+                    queryObjects.append(user.__dict__)
+
         resp.body = json.dumps(queryObjects)
         db.close()
 
-class UserSkillUser(object):
+class UserSkill_User(object):
     def on_get(self, req, resp, userID):
         #"""GET ALL SKILLS  OF A  USER"
         db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
         cursor = db.cursor()
         resp.status = falcon.HTTP_200  # Ok!
-        id = int(id)
+        userID = int(userID)
         #Executa a query
-        sql = "SELECT id_skill FROM user_skills WHERE userID = %d" % (id_user)
+        sql = "SELECT id_skill FROM user_skills WHERE userID = %s" % (id_user)
         cursor.execute(sql)
         #Recebe todos os resultados
         query = cursor.fetchall()
@@ -90,13 +100,16 @@ class UserSkillUser(object):
         queryObjects = []
         #Converte
         for q in query:
-                #BUSCAR OS DADOS DAS HABILIDADES COM O ID =q[0]
+
+                id = int(q[0])
+                #Executa a query
+                sql = "SELECT id, name FROM skills WHERE id = %s" % (id)
+                cursor.execute(sql)
+                #Recebe todos os resultados
+                query = cursor.fetchall()
+                #Cria uma lista guardar os dados convertidos
+                skill = SkillModel(query[0][0], query[0][1])
+                queryObjects.append(skill.__dict__)
+
         resp.body = json.dumps(queryObjects)
         db.close()
-
-
-
-
-
-
-
