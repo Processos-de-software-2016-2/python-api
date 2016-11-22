@@ -11,7 +11,11 @@ from controller.users_info import *
 from controller.image import *
 from controller.skills import *
 from controller.user_skill import *
+<<<<<<< HEAD
 from controller.user_interest import *
+=======
+from controller.users_match import *
+>>>>>>> master
 
 # falcon.API instances are callable WSGI apps
 app = falcon.API()
@@ -35,3 +39,5 @@ app.add_route('/skill/{id}/users', UserSkill_Skill())
 app.add_route('/users/interests', UserInterest())
 app.add_route('/user/{id}/interests', UserInterest_User())
 app.add_route('/interest/{id}/users', UserInterest_Interest())
+app.add_route('/matches', UserMatch())
+app.add_route('/matches/{id}', UserMatches())

@@ -42,6 +42,9 @@ Api in development for the platform described above, includes the following meth
 | /skill/{id}/users  | GET    | empty   | ---     |   Return all users that has skill id  |
 | /interest/{id}        | GET    | empty   | ---     |   Return a interest by given id | 
 | /interest/{id}/users  | GET    | empty   | ---     |   Return all users that has interest id  | 
+| /matches  | GET    | empty   | ---     |   Return all matches  | 
+| /matches/{id}  | GET    | empty   | ---     |   Return all matches for an giver user_id  | 
+| /matches  | POST    | JSON   | {<br/>"id_user_not":"16", <br/>"id_user_has":"1ad8", <br/>"id_skill": "2"<br/>}     |   Insert a match  | 
 
 
 
