@@ -1,6 +1,6 @@
-user.py e skill.py
+#user.py e skill.py
 
-class UserInterestModel(object):
+class UserSkillModel(object):
 	
 	def __init__(self, id, id_user, id_skill):
 		self.id = id

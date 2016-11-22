@@ -1,6 +1,6 @@
 #user.py
 
-class UserInterest(object): 
+class UserInterestModel(object): 
   
 	def __init__(self, id, id_user, id_skill):
 	    self.id = id

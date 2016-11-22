@@ -18,8 +18,11 @@ Api in development for the platform described above, includes the following meth
 
 |   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
 | ---               |  ---   |  ---    | ---     | ---                 |
-| /users            | GET    | empty   | ---     |   Return all users    | 
-| /user/{id}        | GET    | empty   | ---     |   Return a user by given id | 
+| /users            | GET    | empty   | ---     |   Return all users    |
+| /users/skills      | GET    | empty   | ---     |   Return all pair user-skill |
+| /users/skills      | POST    | JSON   |  {<br/> "id_user":"1", <br/>"id_skill":"2"<br/>}    |   Add a User-Skill relation |
+| /user/{id}        | GET    | empty   | ---     |   Return a user by given id |
+| /user/{id}/skills  | GET    | empty   | ---     |   Return all skills of user = id |
 | /user/email/{e-mail}    | GET    | empty   | --- |   Return a user by given email    | 
 | /user             | POST   | JSON    | {<br/>"name":"Example",<br/>"email":"example@example.com",<br/>"age":"21",<br/>"password":"123456"<br/>} |   Add a user | 
 | /user/{id}        | DELETE | empty   | ---     |   Delete user by id | 
@@ -33,6 +36,9 @@ Api in development for the platform described above, includes the following meth
 | /picture 			| POST   | JSON   | {<br/>"type": "imagetype (png OR jpg OR gif)", <br/>"bytecode": "imagebase64bytecode", <br/>"id_user": 1<br/>}     |   Upload an image on server to a given user |
 | /skill/        | GET    | empty   | ---     |   Return all skills | 
 | /skill/{id}        | GET    | empty   | ---     |   Return a skill by given id | 
+| /skill/{id}/users  | GET    | empty   | ---     |   Return all users that has skill id  | 
+
+
 
 
 ## Getting Started
