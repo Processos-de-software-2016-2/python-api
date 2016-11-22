@@ -16,37 +16,61 @@ This component is responsible for create an API for use in web and android versi
 ## API Description
 Api in development for the platform described above, includes the following methods: 
 
+### User
 |   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
 | ---               |  ---   |  ---    | ---     | ---                 |
 | /user             | POST   | JSON    | {<br/>"name":"Example",<br/>"email":"example@example.com",<br/>"age":"21",<br/>"password":"123456"<br/>} |   Add a user |
 | /user/{id}        | GET    | empty   | ---     |   Return a user by given id |
-| /user/{id}/skills  | GET    | empty   | ---     |   Return all skills of user = id |
-| /user/{id}/interests  | GET    | empty   | ---     |   Return all interests of user = id |
-| /user/email/{e-mail}    | GET    | empty   | --- |   Return a user by given email    |
 | /user/{id}        | DELETE | empty   | ---     |   Delete user by id |
+| /user/{id}/interests  | GET    | empty   | ---     |   Return all interests of user = id |
+| /user/{id}/skills  | GET    | empty   | ---     |   Return all skills of user = id |
+| /user/email/{e-mail}    | GET    | empty   | --- |   Return a user by given email    |
+| /user/info   			| POST    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Insert user information by an user id |
+| /user/info   			| PUT    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Update user information by an user id |
+| /user/info/{id}   | GET    | empty   | ---     |   Return an specific user information | 
+| /user/info/{id}   | DELETE    | empty   | ---     |   Delete user info by an user id | 
+| ---               |  ---   |  ---    | ---     | ---                 |
 | /users            | GET    | empty   | ---     |   Return all users    |
-| /users/skills      | GET    | empty   | ---     |   Return all pair user-skill |
-| /users/skills      | POST    | JSON   |  {<br/> "id_user":"1", <br/>"id_skill":"2"<br/>}    |   Add a User-Skill relation |
+| /users/infos      		| GET    | empty   | ---     |   Return all users information  |
 | /users/interests     | GET    | empty   | ---     |   Return all pair user-interest |
 | /users/interests      | POST    | JSON   |  {<br/> "id_user":"1", <br/>"id_skill":"2"<br/>}    |   Add a User-Interest relation |
-| /login            | GET    | JSON   | {<br/>"email":"example@example.com",<br/>"password":"123456"<br/>}     |   Return a JSON with "logged" (if false something the user is not logged and if true the user is logged) |
-| /infos      		| GET    | empty   | ---     |   Return all users information  | 
-| /info/{id_user}   | GET    | empty   | ---     |   Return an specific user information | 
-| /info/{id_user}   | DELETE    | empty   | ---     |   Delete user info by an user id | 
-| /info   			| POST    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Insert user information by an user id |
-| /info   			| PUT    | JSON   | {"facebook": "http://www.facebook.com/example", "whatsapp": "84111111111", "id_user": "5"}     |   Update user information by an user id |
+| /users/skills      | GET    | empty   | ---     |   Return all pair user-skill |
+| /users/skills      | POST    | JSON   |  {<br/> "id_user":"1", <br/>"id_skill":"2"<br/>}    |   Add a User-Skill relation |
+
+
+### Picture
+|   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
+| ---               |  ---   |  ---    | ---     | ---                 |
 | /picture/{id_user}| GET    | empty   | ---     |   Return an url in format '/uploaded_pictures/filename.type' you might add server url before |
 | /picture 			| POST   | JSON   | {<br/>"type": "imagetype (png OR jpg OR gif)", <br/>"bytecode": "imagebase64bytecode", <br/>"id_user": 1<br/>}     |   Upload an image on server to a given user |
+
+### Login
+|   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
+| ---               |  ---   |  ---    | ---     | ---                 |
+| /login            | GET    | JSON   | {<br/>"email":"example@example.com",<br/>"password":"123456"<br/>}     |   Return a JSON with "logged" (if false something the user is not logged and if true the user is logged) |
+
+### Skills
+|   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
+| ---               |  ---   |  ---    | ---     | ---                 |
 | /skill/        | GET    | empty   | ---     |   Return all skills | 
 | /skill/{id}        | GET    | empty   | ---     |   Return a skill by given id | 
 | /skill/{id}/users  | GET    | empty   | ---     |   Return all users that has skill id  |
+| /user/{id}/skills  | GET    | empty   | ---     |   Return all skills of user = id |
+| /users/skills      | POST    | JSON   |  {<br/> "id_user":"1", <br/>"id_skill":"2"<br/>}    |   Add a User-Skill relation |
+
+### Interest
+|   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
+| ---               |  ---   |  ---    | ---     | ---                 |
 | /interest/{id}/users  | GET    | empty   | ---     |   Return all users that has interest id  | 
+| /user/{id}/interests  | GET    | empty   | ---     |   Return all interests of user = id |
+| /users/interests      | POST    | JSON   |  {<br/> "id_user":"1", <br/>"id_skill":"2"<br/>}    |   Add a User-Interest relation |
+
+### Match
+|   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
+| ---               |  ---   |  ---    | ---     | ---                 |
 | /matches  | GET    | empty   | ---     |   Return all matches  | 
 | /matches/{id}  | GET    | empty   | ---     |   Return all matches for an giver user_id  | 
 | /matches  | POST    | JSON   | {<br/>"id_user_not":"16", <br/>"id_user_has":"1ad8", <br/>"id_skill": "2"<br/>}     |   Insert a match  | 
-
-
-
 
 ## Getting Started
 ### Installing prerequisites
