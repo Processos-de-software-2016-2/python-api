@@ -15,6 +15,11 @@ install:
 services:
   - mysql
 
+before_script:
+- mysql -u root -e 'CREATE DATABASE processodesoftware;'
+- mysql -u root -e "CREATE USER 'pds'@'localhost' IDENTIFIED BY 'pds';"
+- mysql -u root -e "GRANT ALL ON processodesoftware.* TO 'pds'@'localhost';"
+
 script:
   - sudo apt-get install mysql-server
   - sudo apt-get install libmysqlclient-dev
