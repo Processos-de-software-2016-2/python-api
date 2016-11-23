@@ -23,8 +23,6 @@ script:
 - sudo apt-get install libmysqlclient-dev
 - gunicorn main:app --bind 0.0.0.0:8000 &
 - pytest test
-notifications:
-  slack: processosdesoftware:4Zi0F7Ktu2A4Id3xBlz4M8Wx
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_f12164d46336_key -iv $encrypted_f12164d46336_iv
   -in id_rsa.enc -out id_rsa -d
