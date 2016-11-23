@@ -32,6 +32,7 @@ before_deploy:
 - eval "$(ssh-agent -s)"
 - chmod 600 id_rsa
 - mv id_rsa ~/.ssh/id_rsa
+- ssh-add ~/.ssh/id_rsa
 - chmod +x scripts/deploy.sh
 - ssh-keyscan -H -t rsa,dsa 159.203.75.66 >> ~/.ssh/known_hosts
 deploy:
