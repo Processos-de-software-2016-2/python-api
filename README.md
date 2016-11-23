@@ -56,6 +56,7 @@ Api in development for the platform described above, includes the following meth
 | ---               |  ---   |  ---    | ---     | ---                 |
 | /skill/        | GET    | empty   | ---     |   Return all skills | 
 | /skill/{id}        | GET    | empty   | ---     |   Return a skill by given id | 
+| /skill/autocomplete/{name}      | GET    | empty   |  ---    |   Return all skills that contains {name} |
 | /skill/{id}/users  | GET    | empty   | ---     |   Return all users that has skill id  |
 | /user/{id}/skills  | GET    | empty   | ---     |   Return all skills of user = id |
 | /users/skills      | POST    | JSON   |  {<br/> "id_user":"1", <br/>"id_skill":"2"<br/>}    |   Add a User-Skill relation |
