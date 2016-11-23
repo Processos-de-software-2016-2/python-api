@@ -65,3 +65,29 @@ class Skill(object):
 			resp.status = falcon.HTTP_500
 			resp.body = "Erro ao executar o acesso."
 		db.close()
+
+class SkillAutoComplete(object):
+	def on_get(self, req, resp, name):
+		#Retorna apenas uma skill presentes no banco de dados.
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		cursor = db.cursor()
+		try:
+			#Executa a query
+			sql = "SELECT id, name FROM skills WHERE name LIKE '%%%s%%'" % (name)
+			cursor.execute(sql)
+			#Recebe todos os resultados
+			query = cursor.fetchall()
+			#Cria uma lista guardar os dados convertidos
+			queryObjects = []
+			#Converte
+			for q in query:
+					skill = SkillModel(q[0], q[1])
+					queryObjects.append(skill.__dict__)
+			#Retorna a resposta
+			resp.status = falcon.HTTP_200  # Ok!
+			resp.body = json.dumps(queryObjects)
+		except:
+			print "GET ERROR: ", sys.exc_info()
+			resp.status = falcon.HTTP_500
+			resp.body = "Erro ao executar o acesso."
+		db.close()
