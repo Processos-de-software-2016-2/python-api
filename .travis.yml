@@ -21,7 +21,6 @@ before_script:
 script:
 - sudo apt-get install mysql-server
 - sudo apt-get install libmysqlclient-dev
-- sudo apt-get install sshpass
 - gunicorn main:app --bind 0.0.0.0:8000 &
 - pytest test
 notifications:
