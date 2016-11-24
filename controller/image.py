@@ -21,7 +21,7 @@ class Images(object):
 	path = "/var/www/html/uploaded_pictures/"
 
 	def on_post(self, req, resp):
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		body = req.stream.read()
 		image = self.mountImage(body)
@@ -51,7 +51,7 @@ class Images(object):
 		db.close()
 
 	def on_get(self, req, resp, id):
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		userid = id
 

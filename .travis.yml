@@ -18,6 +18,8 @@ before_script:
 - echo "USE mysql;\nUPDATE user SET password=PASSWORD('123456') WHERE user='pds';\nFLUSH
   PRIVILEGES;\n" | mysql -u root
 - mysql -u root processodesoftware < bd.sql
+- sudo mkdir -p /var/www/html/uploaded_pictures
+- sudo chmod 777 -R /var/www/html/uploaded_pictures
 script:
 - sudo apt-get install mysql-server
 - sudo apt-get install libmysqlclient-dev

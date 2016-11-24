@@ -18,7 +18,7 @@ from model.user_info import UserInfoModel
 class UsersInfo(object):
 	def on_get(self, req, resp):
 		#"""GET"""
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		resp.status = falcon.HTTP_200  # Ok!
 		#Executa a query
@@ -37,7 +37,7 @@ class UsersInfo(object):
 class UserInfo(object):
 	def on_get(self, req, resp, id):
 		#"""GET"""
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		resp.status = falcon.HTTP_200  # Ok!
 		id = int(id)
@@ -57,7 +57,7 @@ class UserInfo(object):
 
 	def on_delete(self, req, resp, id):
 		#cria a conexAo e o cursor
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		#Recebe o id
 		userid = id
@@ -76,7 +76,7 @@ class UserInfo(object):
 
 	def on_put(self, req, resp):
 		#Ainda nao funciona.
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		#Recebe o id do usuario
 		resp.status = falcon.HTTP_200
@@ -97,7 +97,7 @@ class UserInfo(object):
 
 	def on_post(self, req, resp):
 		#cria a conexao e o cursor
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		#Le os dados
 		body = req.stream.read()

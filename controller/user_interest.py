@@ -19,7 +19,7 @@ from model.user import UserModel
 class UserInterest(object):
     def on_get(self, req, resp):
         #"""GET ALL PAIR USER-INTEREST"""
-        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
         cursor = db.cursor()
         resp.status = falcon.HTTP_200  # Ok!
         #Executa a query
@@ -36,7 +36,7 @@ class UserInterest(object):
         db.close()
 
     def on_post(self, req, resp):
-        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
         cursor = db.cursor()
         body = req.stream.read()
         newusersql = self.mountUserInterest(body)
@@ -62,7 +62,7 @@ class UserInterest(object):
 class UserInterest_Interest(object):
     def on_get(self, req, resp, id):
         #"""GET ALL USERS  WHO HAVE A INTEREST""
-        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
         cursor = db.cursor()
         resp.status = falcon.HTTP_200  # Ok!
         id = int(id)
@@ -92,7 +92,7 @@ class UserInterest_Interest(object):
 class UserInterest_User(object):
     def on_get(self, req, resp, id):
         #"""GET ALL INTERESTS OF A  USER"
-        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
         cursor = db.cursor()
         resp.status = falcon.HTTP_200  # Ok!
         id = int(id)
