@@ -19,7 +19,7 @@ from model.user import UserModel
 class UserSkill(object):
     def on_get(self, req, resp):
         #"""GET ALL PAIR USER-SKILL"""
-        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
         cursor = db.cursor()
         resp.status = falcon.HTTP_200  # Ok!
         #Executa a query
@@ -36,7 +36,7 @@ class UserSkill(object):
         db.close()
 
     def on_post(self, req, resp):
-        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
         cursor = db.cursor()
         body = req.stream.read()
         newusersql = self.mountUserSkill(body)
@@ -62,7 +62,7 @@ class UserSkill(object):
 class UserSkill_Skill(object):
     def on_get(self, req, resp, id):
         #"""GET ALL USERS  WHO HAVE A SKILL ""
-        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
         cursor = db.cursor()
         resp.status = falcon.HTTP_200  # Ok!
         id = int(id)
@@ -92,7 +92,7 @@ class UserSkill_Skill(object):
 class UserSkill_User(object):
     def on_get(self, req, resp, id):
         #"""GET ALL SKILLS  OF A  USER"
-        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+        db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
         cursor = db.cursor()
         resp.status = falcon.HTTP_200  # Ok!
         id = int(id)

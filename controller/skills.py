@@ -18,7 +18,7 @@ from model.skill import SkillModel
 class Skills(object):
 	def on_get(self, req, resp):
 		#Retorna todas as skills presentes no banco de dados.
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		try:
 			#Executa a query
@@ -43,7 +43,7 @@ class Skills(object):
 class Skill(object):
 	def on_get(self, req, resp, id):
 		#Retorna apenas uma skill presentes no banco de dados.
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		try:
 			#Executa a query
@@ -69,7 +69,7 @@ class Skill(object):
 class SkillAutoComplete(object):
 	def on_get(self, req, resp, name):
 		#Retorna apenas uma skill presentes no banco de dados.
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		try:
 			#Executa a query

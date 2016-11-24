@@ -18,7 +18,7 @@ from model.user import UserModel
 class Users(object):
 	def on_get(self, req, resp):
 		#"""GET"""
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		resp.status = falcon.HTTP_200  # Ok!
 		#Executa a query
@@ -37,7 +37,7 @@ class Users(object):
 class User(object):
 	def on_get(self, req, resp, id):
 		#"""GET"""
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		resp.status = falcon.HTTP_200  # Ok!
 		id = int(id)
@@ -56,7 +56,7 @@ class User(object):
 		db.close()
 		
 	def on_post(self, req, resp):
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		body = req.stream.read()
 		newusersql = self.mountUser(body)
@@ -78,7 +78,7 @@ class User(object):
 
 	def on_delete(self, req, resp, id):
 		#cria a conexAo e o cursor
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		#Recebe o id
 		userid = id
@@ -101,7 +101,7 @@ class User(object):
 class UserEmail(object):
 	def on_get(self, req, resp, email):
 		#"""GET"""
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		resp.status = falcon.HTTP_200  # Ok!
 		#Executa a query
@@ -121,7 +121,7 @@ class UserEmail(object):
 class Login(object):
 	def on_get(self, req, resp):
 		#"""GET"""
-		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware")
+		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
 		resp.status = falcon.HTTP_200  # Ok!
 		#Executa a query
