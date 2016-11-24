@@ -126,3 +126,6 @@ ALTER TABLE users
 ADD UNIQUE INDEX `id_UNIQUE` (`id` ASC);
 ALTER TABLE users_info
 ADD UNIQUE INDEX `id_UNIQUE` (`id` ASC);
+
+-- Valores padrão de skills
+INSERT INTO `skills`(`name`) VALUES ('Tocar violão'),('Programar em Java'),('Programar em C++'),('Dançar forró'),('Lutar Jiu-Jitsu'),('Cozinhar'),('Pintar Quadros'),('Marcenaria'),('Artesanato'),('Fotografar'),('Caçar'),('Falar inglês'),('Dirigir Carro'),('Informática');
