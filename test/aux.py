@@ -10,6 +10,14 @@ class Aux:
                 raise Exception("Error at function GET - Code: "+ str(response.status_code))
         return response.content
 
+    def login(self, urlbase, url, param):
+        headers = {'content-type': 'application/json'}
+        response = requests.get(urlbase+url, data=json.dumps(param), headers=headers)
+
+        if response.status_code != 200 and response.status_code != 403:
+                raise Exception("Error at function GET - Code: "+ str(response.status_code))
+        return response.content
+
     def postFunction(self,urlbase, url, param):
         headers = {'content-type': 'application/json'}
         response = requests.post(urlbase+url, data=json.dumps(param), headers=headers)
