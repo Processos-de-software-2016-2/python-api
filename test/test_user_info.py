@@ -33,7 +33,7 @@ class UserTest(unittest.TestCase):
 
         self.user_aux.deleteUser(email)
 
-    def testGetByEmail(self):
+    def testPut(self):
         email = "apiteste2@teste.com"
 
         self.user_aux.createUser(email)
