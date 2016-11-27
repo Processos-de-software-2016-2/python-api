@@ -15,6 +15,11 @@ class UserAux:
         json = { "name":"Teste1","email":email,"age":"21","password":"123456"}
         return self.aux.postFunction(self.urlbase, url, json)
 
+    def getIdByEmail(self, email):
+        url = "/user/email/" + email
+        res = self.aux.getFunction(self.urlbase, url)
+        return json.loads(res)[0]['id']
+
     def deleteUser(self, email):
         url = "/user/email/" + email
         res = self.aux.getFunction(self.urlbase, url)
