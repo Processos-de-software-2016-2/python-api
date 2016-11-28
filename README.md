@@ -49,7 +49,7 @@ Api in development for the platform described above, includes the following meth
 ### Login
 |   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
 | ---               |  ---   |  ---    | ---     | ---                 |
-| /login            | GET    | JSON   | {<br/>"email":"example@example.com",<br/>"password":"123456"<br/>}     |   Return a JSON with "logged" (if false something the user is not logged and if true the user is logged) |
+| /login            | POST    | JSON   | {<br/>"email":"example@example.com",<br/>"password":"123456"<br/>}     |   Return HTTP status OK (200) if user logged correctly and HTTP status 403 if not |
 
 ### Skills
 |   URL             | VERB   | BODY    | EXAMPLE | RESULT              |
