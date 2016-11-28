@@ -11,27 +11,27 @@ class SkillTest(unittest.TestCase):
 
     def testGetSkills(self):
         url = "/skill"
-        response = self.aux.getFunction(urlbase, url)
+        response = self.aux.getFunction(self.urlbase, url)
         response = json.loads(response)
 
         self.assertTrue(response != "[]")
 
     def testGetSkillByID(self):
-        url = "/skill/10"
+        url = "/skill/2"
 
-        response = self.aux.getFunction(urlbase,url)
+        response = self.aux.getFunction(self.urlbase,url)
         response = json.loads(response)
 
         #TO DO
         ##colocar nome da skill com ID 10
-        self.assertTrue(response['name'] == "skill")
+        self.assertTrue(response[0]['name'] == "Programar em Java")
 
     def testGetSkillAutoComplete(self):
-        name = "viol"
+        name = "jav"
         #pega id do usuario
         url = "/skill/autocomplete/"+name
 
-        response = self.aux.getFunction(urlbase, url)
+        response = self.aux.getFunction(self.urlbase, url)
         response = json.loads(response)
 
         #TO DO

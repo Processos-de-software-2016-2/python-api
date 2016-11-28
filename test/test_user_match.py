@@ -27,9 +27,9 @@ class TestMatch(unittest.TestCase):
         param = { "id_user_not": idd1, "id_user_has": idd2,  "id_skill": "2" }
         self.aux.postFunction(self.urlbase, url, param)
         response1 = self.aux.getFunction(self.urlbase, url)
-        response1 = json.loads(response)
+        response1 = json.loads(response1)
 
-        self.assertEqual(len(response) < len(response1))
+        self.assertTrue(len(response) < len(response1))
 
         ##TEM CASCADE? AO DELETAR UM USER - REFLETE NAS OUTRAS TABELAS?
         self.user_aux.deleteUser(email)
