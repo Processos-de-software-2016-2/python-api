@@ -21,9 +21,8 @@ class LoginTest(unittest.TestCase):
         param = {"email" : email, "password": "123456"}
 
         response = self.aux.login(self.urlbase, url, param)
-        response = json.loads(response)
 
-        self.assertTrue(response['logged'])
+        self.assertTrue(response == 200)
 
         self.user_aux.deleteUser(email)
 
@@ -35,9 +34,8 @@ class LoginTest(unittest.TestCase):
         param = {"email" : email, "password": "123456"}
 
         response = self.aux.login(self.urlbase, url, param)
-        response = json.loads(response)
 
-        self.assertFalse(response['logged'])
+        self.assertTrue(response == 403)
 
     def testWrongPasswordLogin(self):
         email = "apiteste1@teste.com"
@@ -49,9 +47,8 @@ class LoginTest(unittest.TestCase):
         param = {"email" : email, "password": "1234567"}
 
         response = self.aux.login(self.urlbase, url, param)
-        response = json.loads(response)
 
-        self.assertFalse(response['logged'])
+        self.assertTrue(response == 403)
 
         self.user_aux.deleteUser(email)
 

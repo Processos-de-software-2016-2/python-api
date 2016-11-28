@@ -119,7 +119,7 @@ class UserEmail(object):
 		db.close()      
 
 class Login(object):
-	def on_get(self, req, resp):
+	def on_post(self, req, resp):
 		#"""GET"""
 		db = MySQLdb.connect (host = "localhost",user = "pds",passwd = "123456",db = "processodesoftware",charset="utf8", use_unicode = True)
 		cursor = db.cursor()
@@ -134,13 +134,8 @@ class Login(object):
 		#conta os resultados
 		rows = cursor.rowcount
 
-		result = {'logged' : True}
-		
 		if(rows <= 0):
 			resp.status = falcon.HTTP_403
-			result = {'logged' : False}
-
-		resp.body = json.dumps(result)
 
 		db.close()  
 
