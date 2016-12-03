@@ -29,7 +29,11 @@ class Users(object):
 		queryObjects = []
 		#Converte
 		for q in query:
-				user = UserModel(q[0], q[1], q[2], q[3])
+				cursor.execute("SELECT s.id, s.name FROM user_interests ui JOIN skills s ON ui.id_skill = s.id WHERE ui.id_user = %d" % q[0])
+				interests = cursor.fetchall()
+				cursor.execute("SELECT s.id, s.name FROM user_skills us JOIN skills s ON us.id_skill = s.id WHERE us.id_user = %d" % q[0])
+				skills = cursor.fetchall()
+				user = UserModel(q[0], q[1], q[2], q[3], "", interests, skills)
 				queryObjects.append(user.__dict__)
 		resp.body = json.dumps(queryObjects)
 		db.close()
@@ -50,7 +54,11 @@ class User(object):
 		queryObjects = []
 		#Converte
 		for q in query:
-				user = UserModel(q[0], q[1], q[2], q[3])
+				cursor.execute("SELECT s.id, s.name FROM user_interests ui JOIN skills s ON ui.id_skill = s.id WHERE ui.id_user = %d" % q[0])
+				interests = cursor.fetchall()
+				cursor.execute("SELECT s.id, s.name FROM user_skills us JOIN skills s ON us.id_skill = s.id WHERE us.id_user = %d" % q[0])
+				skills = cursor.fetchall()
+				user = UserModel(q[0], q[1], q[2], q[3], "", interests, skills)
 				queryObjects.append(user.__dict__)
 		resp.body = json.dumps(queryObjects)
 		db.close()
@@ -113,7 +121,11 @@ class UserEmail(object):
 		queryObjects = []
 		#Converte
 		for q in query:
-				user = UserModel(q[0], q[1], q[2], q[3])
+				cursor.execute("SELECT s.id, s.name FROM user_interests ui JOIN skills s ON ui.id_skill = s.id WHERE ui.id_user = %d" % q[0])
+				interests = cursor.fetchall()
+				cursor.execute("SELECT s.id, s.name FROM user_skills us JOIN skills s ON us.id_skill = s.id WHERE us.id_user = %d" % q[0])
+				skills = cursor.fetchall()
+				user = UserModel(q[0], q[1], q[2], q[3], "", interests, skills)
 				queryObjects.append(user.__dict__)
 		resp.body = json.dumps(queryObjects)
 		db.close()      
