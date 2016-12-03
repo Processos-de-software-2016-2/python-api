@@ -2,12 +2,14 @@
 
 class UserModel(object):
     
-    def __init__(self, id, name, email, age, password=""):
+    def __init__(self, id, name, email, age, password="", interests=[], skills=[]):
         self.id = id
         self.name = name
         self.email = email
         self.age = age
         self.password = password
+        self.interests = interests
+        self.skills = skills
 
 class UserModelMatch(object):
     
